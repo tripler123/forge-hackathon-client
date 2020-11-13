@@ -18,9 +18,14 @@ export const initializeViewer = async (urn) => {
     accessToken: token,
     api: 'derivativeV2',
   };
-
+  const config = { extensions:[ 
+    "Autodesk.AEC.LevelsExtension", 
+    "Autodesk.AEC.Minimap3DExtension",
+    "Autodesk.DocumentBrowser",
+    "Autodesk.Hyperlink",
+  ]};
   var viewerContainer = document.getElementById('viewerContainer')
-  var viewer = new Autodesk.Viewing.Private.GuiViewer3D(viewerContainer, {extensions:["Autodesk.DocumentBrowser","Autodesk.Hyperlink","Autodesk.AEC.Minimap3DExtension","Autodesk.AEC.LevelsExtension",]})
+  var viewer = new Autodesk.Viewing.Private.GuiViewer3D(viewerContainer, config)
   window.privateViewer = viewer;
 
   await Autodesk.Viewing.Initializer(viewerOptions, () => {
@@ -29,6 +34,7 @@ export const initializeViewer = async (urn) => {
 
     Autodesk.Viewing.Document.load(`urn:${urn}`, (doc) => {
       var defaultModel = doc.getRoot().getDefaultGeometry();
+      doc.downloadAecModelData()
       viewer.loadDocumentNode(doc, defaultModel);
       viewer.resize();
     });
