@@ -5,6 +5,7 @@ import TaskManagerPanel from './components/Tasks/TaskManagerPanel';
 import MetricsPanel from './components/MetricsPanel';
 import ViewerPanel from './components/ViewerPanel';
 import {Container, Row, Col} from 'react-bootstrap'
+import "react-circular-progressbar/dist/styles.css";
 
 require('./index.css');
 
@@ -15,8 +16,8 @@ function App() {
           <Col><h1>Forge AU Hackathon</h1></Col>
         </Row>
         <Row>
-          <Col lg={7}><h2>Project Name</h2></Col>
-          <Col lg={5}>
+          <Col lg={8}><h2>Project Name</h2></Col>
+          <Col lg={4}>
             <MetricsPanel></MetricsPanel>
           </Col>
         </Row>
