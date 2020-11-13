@@ -68,9 +68,11 @@ class TaskManagerPanel extends Component {
       idproject: 1,
       name : newTaskName,
       description : newTaskDesc,
-      dbid_array: dbid_array,
+      dbid_array: window.privateViewer.getSelection(),
       status: 0,
     }
+    
+    console.log('newTask',newTask)
     tasks.push(newTask);
     this.setState({tasks: tasks, newTaskName: '', newTaskDesc: ''});
   }
@@ -101,7 +103,7 @@ class TaskManagerPanel extends Component {
 
   render() {
     return (
-      <div onClick={this.unSelectedElements} className="col-lg-4 tasklist-container">
+      <div className="col-lg-4 tasklist-container">
         <form onSubmit={this.handleSubmit}>
         <label>
           <input type="text" placeholder="Enter Name" value={this.state.newTaskName} onChange={this.handleChange} />
@@ -111,9 +113,9 @@ class TaskManagerPanel extends Component {
         </label>
         <input type="submit" value="Add" />
       </form>
-        {this.state.tasks.map((task) => {
+        {this.state.tasks.map((task, index) => {
           return (
-            <TaskCard task={task} viewer={this.state.viewer}/>
+            <TaskCard key={index} task={task} viewer={this.state.viewer}/>
           )
         })}
       </div>
