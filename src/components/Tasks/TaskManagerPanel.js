@@ -69,9 +69,11 @@ class TaskManagerPanel extends Component {
       idproject: 1,
       name : newTaskName,
       description : newTaskDesc,
-      dbid_array: dbid_array,
+      dbid_array: window.privateViewer.getSelection(),
       status: 0,
     }
+    
+    console.log('newTask',newTask)
     tasks.push(newTask);
     this.setState({tasks: tasks, newTaskName: '', newTaskDesc: ''});
   }
