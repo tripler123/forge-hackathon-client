@@ -39,6 +39,7 @@ export const initializeViewer = async (urn) => {
     let result = await view.model.getPropertyDb().executeUserFunction(
       userFunction)
     window.allElements = result;
+    window.dispatchEvent(new CustomEvent('viewerLoaded', { detail: { viewer: viewer } }))
   })
 }
 

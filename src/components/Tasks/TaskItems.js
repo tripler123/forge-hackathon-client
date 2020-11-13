@@ -11,8 +11,9 @@ class TaskItems extends Component {
     }
 
     showTask=(task)=> {
+        console.log(task)
     return (
-        <Card key={`${task.id}`} id={task.id} onClick={this.highlightSelected(task)}>
+        <Card key={`${task.id}`} id={task.id} onClick={() =>{this.highlightSelected(task)}}>
             {task.name}
             <br/>
             {task.description}
@@ -20,8 +21,12 @@ class TaskItems extends Component {
         );
     };
     
-    highlightSelected = (task) =>{
-        let {tasks} = this.state;
+    highlightSelected = async(task) =>{
+        let dbid = task.dbid_array
+        let state = JSON.parse(task.state)
+        let {viewer} = this.props;
+        await viewer.restoreState(state)
+        await viewer.select(dbid)
     }
 
     render() {
