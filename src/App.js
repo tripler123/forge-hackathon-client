@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
 import TopBar from './components/TopBar'
+import MetricToolBar from './components/MetricToolBar'
 import ForgeViewer from './components/ForgeViewer';
+
 import TaskManagerPanel from './components/Tasks/TaskManagerPanel';
 import MetricsPanel from './components/MetricsPanel';
 import ViewerPanel from './components/ViewerPanel';
@@ -12,24 +14,16 @@ require('./index.css');
 
 function App() {
   return (
-      <Container fluid>
-        <Row className="bg-red">
+      <Container fluid style={{background: "#EEEEEE"}}>
+        <Row className="toolbar-bg">
             <TopBar />
         </Row>
-        <Row>
-          <Col lg={8}><h2>Project Name</h2></Col>
-          <Col lg={4}>
-            <MetricsPanel></MetricsPanel>
-          </Col>
+        <Row className="metricbar-bg">
+            <MetricToolBar />
         </Row>
-        <Row>
-          <Col lg={8} style={{}} >
-            {/* <ViewerPanel /> */}
+        <Row className="custom-container" style={{margin: "0 auto", background: "#EAEAEA"}}>
             <ForgeViewer />
-          </Col>
-          <Col lg={4}>
             <TaskManagerPanel></TaskManagerPanel>
-          </Col>
         </Row>
       </Container>
   );
