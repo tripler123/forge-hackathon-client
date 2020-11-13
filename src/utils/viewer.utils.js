@@ -20,7 +20,7 @@ export const initializeViewer = async (urn) => {
   };
 
   var viewerContainer = document.getElementById('viewerContainer')
-  var viewer = new Autodesk.Viewing.Private.GuiViewer3D(viewerContainer, {})
+  var viewer = new Autodesk.Viewing.Private.GuiViewer3D(viewerContainer, {extensions:["Autodesk.DocumentBrowser","Autodesk.Hyperlink","Autodesk.AEC.Minimap3DExtension","Autodesk.AEC.LevelsExtension",]})
   window.privateViewer = viewer;
 
   await Autodesk.Viewing.Initializer(viewerOptions, () => {

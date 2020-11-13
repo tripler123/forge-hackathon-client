@@ -11,7 +11,6 @@ class TaskItems extends Component {
     }
 
     showTask=(task)=> {
-    console.log(task)
     return (
         <Card key={`${task.id}`} id={task.id} onClick={this.highlightSelected(task)}>
             {task.name}
@@ -23,7 +22,6 @@ class TaskItems extends Component {
     
     highlightSelected = (task) =>{
         let {tasks} = this.state;
-        console.log("PrivateViewer",window.privateViewer)
     }
 
     render() {
