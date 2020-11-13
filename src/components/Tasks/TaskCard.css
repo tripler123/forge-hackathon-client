@@ -1,0 +1,38 @@
+.taskcard {
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 14px 24px;
+  margin-left: 16px;
+  background-color: white;
+  border-radius: 5px;
+  align-self: center;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  margin-bottom: 8px;
+  border-left: 6px solid red;
+}
+
+.taskcard__title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.taskcard__title p {
+  margin: 0;
+}
+
+.taskcard__title--name{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.taskcard__title--date{
+  font-size: 12px;
+}
+
+.taskcard__description{
+  font-size: 11px;
+  margin: 0;
+}
