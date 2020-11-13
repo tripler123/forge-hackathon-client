@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import TopBar from './components/TopBar'
 import ForgeViewer from './components/ForgeViewer';
 import TaskManagerPanel from './components/Tasks/TaskManagerPanel';
 import MetricsPanel from './components/MetricsPanel';
@@ -12,8 +13,8 @@ require('./index.css');
 function App() {
   return (
       <Container fluid>
-        <Row>
-          <Col><h1>Forge AU Hackathon</h1></Col>
+        <Row className="bg-red">
+            <TopBar />
         </Row>
         <Row>
           <Col lg={8}><h2>Project Name</h2></Col>

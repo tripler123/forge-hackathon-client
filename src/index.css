@@ -11,6 +11,16 @@ body {
     min-height: 80vh;
 }
 
-.taskItem{
+.taskItem {
     color: black;
+}
+
+.bg-red {
+    background-color: #5A5A5A;
+    padding: 5px 0;
+}
+
+.custom-container {
+    width: 90%;
+    max-width: 1400px;
 }
