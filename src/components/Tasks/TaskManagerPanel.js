@@ -113,7 +113,7 @@ class TaskManagerPanel extends Component {
       </form>
         {this.state.tasks.map((task) => {
           return (
-            <TaskCard task={task}  viewer={this.state.viewer}/>
+            <TaskCard task={task} viewer={this.state.viewer}/>
           )
         })}
 
