@@ -1,0 +1,55 @@
+.toolbar {
+  display: flex;
+  
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo__img {
+  height: 40px;
+}
+
+.logo__text {
+  margin-left: 12px;
+}
+
+.logo__text p {
+  margin: 0px;
+  font-weight: bold;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+}
+
+.avatar__text {
+  text-align: end;
+  margin-right: 12px;
+}
+
+.avatar__text p {
+  margin: 0px;
+}
+
+.avatar__text--username {
+  font-weight: bold;
+}
+
+.avatar__text--position {
+  font-size: 12px;
+}
+
+.avatar__img {
+  height: 45px;
+}
+
+p {
+  color: white;
+}

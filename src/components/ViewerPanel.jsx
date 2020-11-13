@@ -42,7 +42,6 @@ function ViewerPanel() {
 
   const getSelect = () => {
     const selected = window.privateViewer.getSelection();
-    console.log(selected);
     let dbid_array = JSON.stringify(selected);
   }
 
