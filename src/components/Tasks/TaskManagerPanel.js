@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import TaskItems from "./TaskItems";
+// import TaskItems from "./TaskItems";
+import TaskCard from './TaskCard'
 import axios from 'axios';
 import  {tasks} from '../fakeData';
-import ViewerPanel from "../ViewerPanel";
 
 class TaskManagerPanel extends Component {
   constructor(props) {
@@ -101,7 +101,7 @@ class TaskManagerPanel extends Component {
 
   render() {
     return (
-      <div className="taskList">
+      <div className="col-lg-4 tasklist-container">
         <form onSubmit={this.handleSubmit}>
         <label>
           <input type="text" placeholder="Enter Name" value={this.state.newTaskName} onChange={this.handleChange} />
@@ -111,7 +111,12 @@ class TaskManagerPanel extends Component {
         </label>
         <input type="submit" value="Add" />
       </form>
-        <TaskItems items={this.state.tasks} viewer={this.state.viewer}/>
+        {this.state.tasks.map((task) => {
+          return (
+            <TaskCard task={task}  viewer={this.state.viewer}/>
+          )
+        })}
+
       </div>
     );
   }

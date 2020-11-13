@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {Container, Row} from 'react-bootstrap'
 
 import TopBar from './components/TopBar'
 import MetricToolBar from './components/MetricToolBar'
 import ForgeViewer from './components/ForgeViewer';
-
 import TaskManagerPanel from './components/Tasks/TaskManagerPanel';
-import MetricsPanel from './components/MetricsPanel';
-import ViewerPanel from './components/ViewerPanel';
-import {Container, Row, Col} from 'react-bootstrap'
+
 import "react-circular-progressbar/dist/styles.css";
 
 require('./index.css');
 
 function App() {
   return (
-      <Container fluid style={{background: "#EEEEEE"}}>
+      <Container fluid className="general-bg" >
         <Row className="toolbar-bg">
             <TopBar />
         </Row>
