@@ -35,5 +35,5 @@ class TaskItems extends Component {
     );
     }
 }
- 
+
 export default TaskItems;

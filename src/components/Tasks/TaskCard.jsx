@@ -1,16 +1,25 @@
 /* global THREE */
-import React from 'react'
+import React, { useState } from 'react'
 require('./TaskCard.css');
 
 function TaskCard({ task }) {
+  const [taskId, setTaskId] = useState(-1);
+
   const orange = new THREE.Vector4(1, 0.6, 0, 1);
 
   const selectElements = () => {
-    window.privateViewer.clearThemingColors();
-    window.privateViewer.isolate(task.dbid_array);
-    task.dbid_array.forEach(dbId => {
-      window.privateViewer.setThemingColor(dbId, orange)
-    })
+    if (taskId === -1 && taskId !== task.taskId) {
+      window.privateViewer.clearThemingColors();
+      window.privateViewer.isolate(task.dbid_array);
+      task.dbid_array.forEach(dbId => {
+        window.privateViewer.setThemingColor(dbId, orange)
+      })
+      setTaskId(task.taskId)
+    } else {
+      window.privateViewer.clearThemingColors();
+      window.privateViewer.isolate(0);
+      setTaskId(-1)
+    }
   }
   return (
     <div className="taskcard" onClick={selectElements}>

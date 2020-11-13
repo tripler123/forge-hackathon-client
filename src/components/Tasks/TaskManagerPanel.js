@@ -102,7 +102,7 @@ class TaskManagerPanel extends Component {
 
   render() {
     return (
-      <div onClick={this.unSelectedElements} className="col-lg-4 tasklist-container">
+      <div className="col-lg-4 tasklist-container">
         <form onSubmit={this.handleSubmit}>
         <label>
           <input type="text" placeholder="Enter Name" value={this.state.newTaskName} onChange={this.handleChange} />
