@@ -74,8 +74,8 @@ class TaskManagerPanel extends Component {
     this.setState({dbid_array: dbid_array});
   }
  
-  createTask = (newTaskName) => {
-    let {tasks, newTaskDesc, dbid_array} = this.state;
+  createTask = () => {
+    let {tasks, newTaskDesc,newTaskName, dbid_array} = this.state;
     let id = tasks.length;
     let newTask = {
       id: id,
@@ -86,7 +86,6 @@ class TaskManagerPanel extends Component {
       status: 0,
     }
     tasks.push(newTask);
-    console.log("Tasks", tasks)
     this.setState({tasks: tasks, newTaskName: ''});
   }
 
@@ -99,7 +98,13 @@ class TaskManagerPanel extends Component {
     event.preventDefault();
     let {newTaskName, newTaskDesc, dbid_array} = this.state;
     this.fetchSelected();
-    (newTaskName !== '' && newTaskDesc !== '') ? this.createTask(newTaskName) : alert("Please Input Task Name"); 
+    if(newTaskName === ''){
+      alert("Please Input Task Name");
+    }else if(newTaskDesc === '') {
+      alert("Please Input Description");
+    }else{
+      this.createTask()
+    }
   }
 
   handleDescription = (event)=>{
