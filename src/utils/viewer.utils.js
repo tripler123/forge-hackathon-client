@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 /* global Autodesk */
-const url_base = 'http://localhost:5000/'
+const url_base = 'https://forge-hackathon-api.herokuapp.com/'
 
 const getToken = async () => {
   const {
@@ -30,6 +30,7 @@ export const initializeViewer = async (urn) => {
     Autodesk.Viewing.Document.load(`urn:${urn}`, (doc) => {
       var defaultModel = doc.getRoot().getDefaultGeometry();
       viewer.loadDocumentNode(doc, defaultModel);
+      viewer.resize();
     });
 
   });
