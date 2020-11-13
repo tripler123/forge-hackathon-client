@@ -73,7 +73,7 @@ class TaskManagerPanel extends Component {
       status: 0,
     }
     tasks.push(newTask);
-    this.setState({tasks: tasks, newTaskName: ''});
+    this.setState({tasks: tasks, newTaskName: '', newTaskDesc=''});
   }
 
   handleChange(event) {
