@@ -12,6 +12,7 @@
   margin-bottom: 8px;
   border-left: 6px solid red;
   cursor: pointer;
+  position: relative;
 }
 
 .taskcard__title {
@@ -36,4 +37,29 @@
 .taskcard__description{
   font-size: 11px;
   margin: 0;
+}
+
+.taskcard__actions{
+  position: absolute;
+  right: 24px;
+  bottom: 10px;
+}
+
+.taskcard__actions button {
+  /* padding: 2px auto; */
+  
+  border: none;
+  margin-left: 5px;
+  border-radius: 5px;
+  width: 35px;
+  /* height: 20px; */
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.taskcard__actions--edit {
+  background-color: #1167b1;
+}
+
+.taskcard__actions--delete {
+  background-color: #ff5500;
 }
