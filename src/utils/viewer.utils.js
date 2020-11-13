@@ -30,6 +30,7 @@ export const initializeViewer = async (urn) => {
     Autodesk.Viewing.Document.load(`urn:${urn}`, (doc) => {
       var defaultModel = doc.getRoot().getDefaultGeometry();
       viewer.loadDocumentNode(doc, defaultModel);
+      viewer.resize();
     });
 
   });
