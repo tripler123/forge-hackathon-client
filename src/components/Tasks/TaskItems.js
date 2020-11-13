@@ -1,36 +1,36 @@
 import React, { Component } from "react";
+import {Card} from 'react-bootstrap'
 
 class TaskItems extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          tasks: []
+            tasks: []
         };
         this.url_base = 'https://forge-hackathon-api.herokuapp.com/'
-      }
+    }
 
-      showTask(task) {
-        return <li
-          className={"taskItem"}
-          key={`${task.id}`}
-          id={task.id}
-        >
-          {task.name}
-        </li>
-      };
-    
-
-      render() {
-        return (
-            <ul className="task-list text-white">
-                {
-                    this.props.items.length !== 0 ?
-                        this.props.items.map(this.showTask) :
-                        <label className="font-weight-bold">You have no tasks for this project.</label>
-                }
-            </ul>
+    showTask=(task)=> {
+    console.log(task)
+    return (
+        <Card key={`${task.id}`} id={task.id} onClick={this.highlightSelected(task)}>
+            {task.name}
+            <br/>
+            {task.description}
+        </Card>
         );
-      }
+    };
+    
+    highlightSelected = (task) =>{
+        let {tasks} = this.state;
+        console.log("PrivateViewer",window.privateViewer)
+    }
+
+    render() {
+    return (
+        this.props.items.map(this.showTask)
+    );
+    }
 }
  
 export default TaskItems;

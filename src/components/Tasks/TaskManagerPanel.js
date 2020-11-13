@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TaskItems from "./TaskItems";
 import axios from 'axios';
+import ViewerPanel from "../ViewerPanel";
 
 class TaskManagerPanel extends Component {
   constructor(props) {
@@ -8,13 +9,30 @@ class TaskManagerPanel extends Component {
 
     this.state = {
       newTaskName: '',
+      newTaskDesc: '',
+      dbid_array: [],
       tasks: [
         {
-          id: 0,
+          idproject: 2,
           name : "Do Something",
-          completed: false,
-
-        }
+          description : "Do Something description",
+          dbid_array: [4844, 5315, 5544, 5550, 5634, 5638],
+          status: 0,
+        },
+        {
+          idproject: 2,
+          name : "Structural Column Formwork",
+          description : "Structural Column description",
+          dbid_array: [4844, 5315, 5544, 5550, 5634, 5638],
+          status: 0,
+        },
+        {
+          idproject: 1,
+          name : "Structural Framing",
+          description : "Structural Framing description",
+          dbid_array: [4854, 4856, 5197, 5199],
+          status: 0,
+        },
       ]
     };
     this.handleChange = this.handleChange.bind(this);
@@ -23,6 +41,10 @@ class TaskManagerPanel extends Component {
   }
 
   componentDidMount = () => {
+    window.getTasks = () =>{
+      const tasks = this.state.tasks;
+      console.log(tasks)
+    }
   }
   
   getAllTasks = async () => {
@@ -45,15 +67,23 @@ class TaskManagerPanel extends Component {
     } = await axios.get(this.url_base + `task/project/${projectId}`);
     return data
   }
+
+  fetchSelected = () =>{
+    let selected = window.privateViewer.getSelection();
+    let dbid_array = selected;
+    this.setState({dbid_array: dbid_array});
+  }
  
   createTask = (newTaskName) => {
-    let {tasks} = this.state;
+    let {tasks, newTaskDesc, dbid_array} = this.state;
     let id = tasks.length;
     let newTask = {
       id: id,
+      idproject: 1,
       name : newTaskName,
-      completed: false,
-
+      description : newTaskDesc,
+      dbid_array: dbid_array,
+      status: 0,
     }
     tasks.push(newTask);
     console.log("Tasks", tasks)
@@ -67,19 +97,25 @@ class TaskManagerPanel extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    let {newTaskName} = this.state;
-    
-    (newTaskName !== '') ? this.createTask(newTaskName) : alert("Please Input Task Name"); 
+    let {newTaskName, newTaskDesc, dbid_array} = this.state;
+    this.fetchSelected();
+    (newTaskName !== '' && newTaskDesc !== '') ? this.createTask(newTaskName) : alert("Please Input Task Name"); 
+  }
 
+  handleDescription = (event)=>{
+    event.preventDefault();
+    this.setState({newTaskDesc: event.target.value});
   }
 
   render() {
     return (
       <div className="taskList">
-        <h3>Task Manager Panel</h3>
         <form onSubmit={this.handleSubmit}>
         <label>
-          <input type="text" value={this.state.newTaskName} onChange={this.handleChange} />
+          <input type="text" placeholder="Enter Name" value={this.state.newTaskName} onChange={this.handleChange} />
+        </label>
+        <label>
+          <input type="text" placeholder="Enter Description" value={this.state.newTaskDesc} onChange={this.handleDescription} />
         </label>
         <input type="submit" value="Add" />
       </form>

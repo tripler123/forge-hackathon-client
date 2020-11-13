@@ -11,7 +11,7 @@ Production_url = https://forge-hackathon-api.herokuapp.com/
 * GET /task --> Get all tasks
 * GET /task/:taskId --> Get task
 * GET /task/project/:projectId --> Get project's tasks
-* GET /task --> Create tas
+* POST /task --> Create tas
 * BODY: { name,description, dbid_array, idproject }
 
 # Getting Started with Create React App
