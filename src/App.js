@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import ForgeViewer from './components/ForgeViewer.jsx';
-import TaskManagerPanel from './components/TaskManagerPanel.jsx';
-import MetricsPanel from './components/MetricsPanel.jsx';
-import ViewerPanel from './components/ViewerPanel.jsx';
+import ForgeViewer from './components/ForgeViewer';
+import TaskManagerPanel from './components/Tasks/TaskManagerPanel';
+import MetricsPanel from './components/MetricsPanel';
+import ViewerPanel from './components/ViewerPanel';
 import {Container, Row, Col} from 'react-bootstrap'
 
 require('./index.css');

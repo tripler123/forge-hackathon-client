@@ -10,3 +10,7 @@ body {
     flex-direction: column;
     min-height: 80vh;
 }
+
+.taskItem{
+    color: black;
+}
