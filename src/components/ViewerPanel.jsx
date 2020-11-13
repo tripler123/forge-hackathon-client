@@ -1,10 +1,10 @@
-/* global THREE */
+// /* global THREE */
 import React, { useState } from 'react'
 
 
 function ViewerPanel() {
 
-  const orange = new THREE.Vector4(1, 0.6, 0, 1);
+  // const orange = new THREE.Vector4(1, 0.6, 0, 1);
 
   const [parameterName, setparameterName] = useState('')
   const [parameterValue, setparameterValue] = useState('')
@@ -40,6 +40,12 @@ function ViewerPanel() {
     // console.log(window.allElements)
   }
 
+  const getSelect = () => {
+    const selected = window.privateViewer.getSelection();
+    console.log(selected);
+    let dbid_array = JSON.stringify(selected);
+  }
+
   return (
     <div>
       {/* <button onClick={SetColor}>Colorear Seleccionado</button> */}
@@ -55,6 +61,7 @@ function ViewerPanel() {
         placeholder="Parameter Value" />
       <button onClick={() => setColorByParameter(parameterValue)}>Set Theming Color</button>
       <button onClick={clearView}>Reset</button>
+      <button onClick={getSelect}>Get Select</button>
     </div>
   )
 }
