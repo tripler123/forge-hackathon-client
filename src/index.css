@@ -15,12 +15,19 @@ body {
     color: black;
 }
 
-.bg-red {
+.toolbar-bg {
     background-color: #5A5A5A;
     padding: 5px 0;
+}
+
+.metricbar-bg{
+    background-color: #E1E1E1;
+    padding: 2rem 0;
+    color: black;
 }
 
 .custom-container {
     width: 90%;
     max-width: 1400px;
+    margin: 0 auto;
 }

@@ -8,7 +8,7 @@ const ForgeViewer = () => {
   }, [])
 
   return (
-    <div id='viewerContainer'></div>
+    <div className="col-lg-8" id='viewerContainer'></div>
   )
 }
 export default ForgeViewer;

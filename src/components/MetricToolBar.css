@@ -1,0 +1,28 @@
+.metricbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.project__img {
+  height: 70px;
+  border-radius: 10px;
+}
+
+.project__text {
+  margin-left: 12px;
+}
+
+.project__text p {
+  color: #5A5A5A;
+  margin: 0px;
+}
+
+.project__text--name {
+  font-weight: bold;
+}
