@@ -112,9 +112,9 @@ class TaskManagerPanel extends Component {
         </label>
         <input type="submit" value="Add" />
       </form>
-        {this.state.tasks.map((task) => {
+        {this.state.tasks.map((task, index) => {
           return (
-            <TaskCard task={task} viewer={this.state.viewer}/>
+            <TaskCard key={index} task={task} viewer={this.state.viewer}/>
           )
         })}
       </div>
