@@ -19,20 +19,20 @@ class TaskManagerPanel extends Component {
     this.url_base = 'https://forge-hackathon-api.herokuapp.com/'
   }
 
-  // componentDidMount = () => {
-  //   // let {tasks} = this.state;
-  //   window.getTasks = () =>{
-  //     const tasks = this.state.tasks;
-  //     console.log(tasks)
-  //   }
-  //   window.addEventListener('viewerLoaded', (e) => {
-  //     let {tasks} = this.state;
-  //     this.viewer = e.detail.viewer;
-  //     this.viewer.select(tasks[0].dbid_array);
-  //     this.viewer.restoreState(JSON.parse(tasks[0].state));
-  //     this.setState({viewer: this.viewer});
-  //   });
-  // }
+  componentDidMount = () => {
+    // let {tasks} = this.state;
+    window.getTasks = () =>{
+      const tasks = this.state.tasks;
+      console.log(tasks)
+    }
+    // window.addEventListener('viewerLoaded', (e) => {
+    //   let {tasks} = this.state;
+    //   this.viewer = e.detail.viewer;
+    //   this.viewer.select(tasks[0].dbid_array);
+    //   this.viewer.restoreState(JSON.parse(tasks[0].state));
+    //   this.setState({viewer: this.viewer});
+    // });
+  }
   
   getAllTasks = async () => {
     const {
@@ -57,12 +57,11 @@ class TaskManagerPanel extends Component {
 
   fetchSelected = () =>{
     let selected = window.privateViewer.getSelection();
-    let dbid_array = selected;
-    this.setState({dbid_array: dbid_array});
+    return selected;
   }
  
-  createTask = () => {
-    let {tasks, newTaskDesc,newTaskName, dbid_array} = this.state;
+  createTask = (dbid_array) => {
+    let {tasks, newTaskDesc,newTaskName} = this.state;
     let id = tasks.length;
     let newTask = {
       id: id,
@@ -85,13 +84,13 @@ class TaskManagerPanel extends Component {
     event.preventDefault();
     // let {newTaskName, newTaskDesc, dbid_array} = this.state;
     let {newTaskName, newTaskDesc} = this.state;
-    this.fetchSelected();
+    let array = this.fetchSelected();
     if(newTaskName === ''){
       alert("Please Input Task Name");
     }else if(newTaskDesc === '') {
       alert("Please Input Description");
     }else{
-      this.createTask()
+      this.createTask(array)
     }
   }
 
