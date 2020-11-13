@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 function ViewerPanel() {
 
-  // const orange = new THREE.Vector4(1, 0.6, 0, 1);
+  const orange = new THREE.Vector4(1, 0.6, 0, 1);
 
   const [parameterName, setparameterName] = useState('')
   const [parameterValue, setparameterValue] = useState('')

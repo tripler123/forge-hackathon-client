@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import TaskItems from "./TaskItems";
-import TaskCard from './TaskCard'
+import TaskCard from './TaskCard.jsx'
 import axios from 'axios';
 import  {tasks} from '../fakeData';
 
@@ -19,20 +19,20 @@ class TaskManagerPanel extends Component {
     this.url_base = 'https://forge-hackathon-api.herokuapp.com/'
   }
 
-  componentDidMount = () => {
-    let {tasks} = this.state;
-    window.getTasks = () =>{
-      const tasks = this.state.tasks;
-      console.log(tasks)
-    }
-    window.addEventListener('viewerLoaded', (e) => {
-      let {tasks} = this.state;
-      this.viewer = e.detail.viewer;
-      this.viewer.select(tasks[0].dbid_array);
-      this.viewer.restoreState(JSON.parse(tasks[0].state));
-      this.setState({viewer: this.viewer});
-    });
-  }
+  // componentDidMount = () => {
+  //   // let {tasks} = this.state;
+  //   window.getTasks = () =>{
+  //     const tasks = this.state.tasks;
+  //     console.log(tasks)
+  //   }
+  //   window.addEventListener('viewerLoaded', (e) => {
+  //     let {tasks} = this.state;
+  //     this.viewer = e.detail.viewer;
+  //     this.viewer.select(tasks[0].dbid_array);
+  //     this.viewer.restoreState(JSON.parse(tasks[0].state));
+  //     this.setState({viewer: this.viewer});
+  //   });
+  // }
   
   getAllTasks = async () => {
     const {
@@ -83,7 +83,8 @@ class TaskManagerPanel extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    let {newTaskName, newTaskDesc, dbid_array} = this.state;
+    // let {newTaskName, newTaskDesc, dbid_array} = this.state;
+    let {newTaskName, newTaskDesc} = this.state;
     this.fetchSelected();
     if(newTaskName === ''){
       alert("Please Input Task Name");
@@ -101,7 +102,7 @@ class TaskManagerPanel extends Component {
 
   render() {
     return (
-      <div className="col-lg-4 tasklist-container">
+      <div onClick={this.unSelectedElements} className="col-lg-4 tasklist-container">
         <form onSubmit={this.handleSubmit}>
         <label>
           <input type="text" placeholder="Enter Name" value={this.state.newTaskName} onChange={this.handleChange} />
@@ -116,7 +117,6 @@ class TaskManagerPanel extends Component {
             <TaskCard task={task} viewer={this.state.viewer}/>
           )
         })}
-
       </div>
     );
   }
