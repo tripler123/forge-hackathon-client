@@ -2,7 +2,7 @@ import React from 'react'
 import {CircularProgressbar, buildStyles} from 'react-circular-progressbar';
 
 const MetricsPanel = () => {
-  const percentage1 = 66;
+  const percentage1 = 20;
   const percentage2 = parseInt((15 / 45)*100);
 
   return (

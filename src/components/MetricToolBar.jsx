@@ -1,8 +1,12 @@
 import React from 'react'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 require('./MetricToolBar.css');
-function MetricToolBar() {
 
+function MetricToolBar() {
+  const data = require('./fakeData.json');
+  const taskCount = data.project.data.taskCount;
+  const completedTasks = data.project.data.tasksCompleted;
+  const percentage = ((completedTasks/taskCount)*100).toFixed();
   return (
     <div className="metricbar custom-container">
       <div className="project">
@@ -16,7 +20,7 @@ function MetricToolBar() {
       </div>
       <div className="metrics">
         <div className="metrics__count">
-          <p className="metrics__count--number">202</p>
+          <p className="metrics__count--number">{taskCount}</p>
           <p className="metrics__count--text">number of</p>
           <p className="metrics__count--text">tasks saved</p>
         </div>
@@ -24,7 +28,7 @@ function MetricToolBar() {
           
         </div>
         <div className="metrics__percent">
-          <p className="metrics__count--number">60%</p>
+          <p className="metrics__count--number">{percentage}%</p>
           <p className="metrics__count--text">Percentage of</p>
           <p className="metrics__count--text">tasks solved</p>
         </div>
