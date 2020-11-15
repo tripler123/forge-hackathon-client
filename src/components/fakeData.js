@@ -23,7 +23,7 @@ export const tasks=[
       name : "Structural Framing",
       description : "Structural Framing description",
       dbid_array: [5092, 5101, 5113],
-      status: 0,
+      status: 1,
       state: '{"seedURN":"dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6c2FudG9yaW5pX2J1Y2tldC9MYW1iZGFTbWFsbEV4YW1wbGUucnZ0","objectSet":[{"id":[4844,5315,5544,5550,5634,5638],"idType":"lmv","isolated":[],"hidden":[],"explodeScale":0}],"viewport":{"name":"","eye":[-12.794062591253605,13.452475933887392,-96.84153161753039],"target":[-12.579555406029149,-1.274233266084208,-0.16619396560968555],"up":[0.014398183784887575,-0.9884884060452446,-0.1506099711766409],"worldUpVector":[0,0,1],"pivotPoint":[0,0,0],"distanceToOrbit":97.79081187568654,"aspectRatio":1.204003063774893,"projection":"orthographic","isOrthographic":true,"orthographicHeight":97.79081187568656},"renderOptions":{"environment":"Boardwalk","ambientOcclusion":{"enabled":true,"radius":13.123359580052492,"intensity":1},"toneMap":{"method":1,"exposure":-7,"lightMultiplier":-1e-20},"appearance":{"ghostHidden":true,"ambientShadow":true,"antiAliasing":true,"progressiveDisplay":true,"swapBlackAndWhite":false,"displayLines":true,"displayPoints":true}},"cutplanes":[],"floorGuid":null}'
     },
   ];
