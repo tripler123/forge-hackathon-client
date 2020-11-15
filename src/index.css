@@ -2,8 +2,14 @@ body {
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
+#root{
+    min-height: 100%;
+}
+
+
 
 #viewerContainer {
     display: flex;
@@ -20,13 +26,14 @@ body {
     padding: 5px 0;
 }
 
-.metricbar-bg{
+.metricbar-bg {
     background-color: #E1E1E1;
-    padding: 2rem 0;
+    /* padding: 2rem 0; */
     color: black;
+    height: 9rem;
 }
 
-.general-bg{
+.general-bg {
     background-color: #eeeeee;
 }
 
@@ -38,11 +45,4 @@ body {
 
 .row {
     flex-wrap: nowrap !important;
-}
-
-.tasklist-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 20px;
 }

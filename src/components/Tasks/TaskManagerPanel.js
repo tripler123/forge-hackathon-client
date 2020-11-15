@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-// import TaskItems from "./TaskItems";
-import TaskCard from './TaskCard.jsx'
 import axios from 'axios';
-import  {tasks} from '../fakeData';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
+import TaskCard from './TaskCard.jsx'
+import { tasks } from '../fakeData';
+
+require('./TaskManagerPanel.css');
 
 class TaskManagerPanel extends Component {
   constructor(props) {
@@ -21,7 +25,7 @@ class TaskManagerPanel extends Component {
 
   componentDidMount = () => {
     // let {tasks} = this.state;
-    window.getTasks = () =>{
+    window.getTasks = () => {
       const tasks = this.state.tasks;
       console.log(tasks)
     }
@@ -33,21 +37,21 @@ class TaskManagerPanel extends Component {
     //   this.setState({viewer: this.viewer});
     // });
   }
-  
+
   getAllTasks = async () => {
     const {
       data
     } = await axios.get(this.url_base + `task`);
     return data
   }
-  
+
   getTask = async (taskId) => {
     const {
       data
     } = await axios.get(this.url_base + `task/${taskId}`);
     return data
   }
-  
+
   getProjectTasks = async (projectId) => {
     const {
       data
@@ -55,72 +59,85 @@ class TaskManagerPanel extends Component {
     return data
   }
 
-  fetchSelected = () =>{
+  fetchSelected = () => {
     let selected = window.privateViewer.getSelection();
     return selected;
   }
- 
+
   createTask = (dbid_array) => {
-    let {tasks, newTaskDesc,newTaskName} = this.state;
+    let { tasks, newTaskDesc, newTaskName } = this.state;
     let id = tasks.length;
     let newTask = {
       id: id,
       idproject: 1,
-      name : newTaskName,
-      description : newTaskDesc,
+      name: newTaskName,
+      description: newTaskDesc,
       dbid_array: window.privateViewer.getSelection(),
       status: 0,
     }
-    
-    console.log('newTask',newTask)
+
+    console.log('newTask', newTask)
     tasks.push(newTask);
-    this.setState({tasks: tasks, newTaskName: '', newTaskDesc: ''});
+    this.setState({ tasks: tasks, newTaskName: '', newTaskDesc: '' });
   }
 
   handleChange(event) {
     event.preventDefault();
-    this.setState({newTaskName: event.target.value});
+    this.setState({ newTaskName: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     // let {newTaskName, newTaskDesc, dbid_array} = this.state;
-    let {newTaskName, newTaskDesc} = this.state;
+    let { newTaskName, newTaskDesc } = this.state;
     let array = this.fetchSelected();
-    if(newTaskName === ''){
+    if (newTaskName === '') {
       alert("Please Input Task Name");
-    }else if(newTaskDesc === '') {
+    } else if (newTaskDesc === '') {
       alert("Please Input Description");
-    }else{
+    } else {
       this.createTask(array)
     }
   }
 
-  handleDescription = (event)=>{
+  handleDescription = (event) => {
     event.preventDefault();
-    this.setState({newTaskDesc: event.target.value});
+    this.setState({ newTaskDesc: event.target.value });
   }
 
   render() {
     return (
-      <div className="col-lg-4 tasklist-container">
-        <form onSubmit={this.handleSubmit}>
-        <label>
-          <input type="text" placeholder="Enter Name" value={this.state.newTaskName} onChange={this.handleChange} />
-        </label>
-        <label>
-          <input type="text" placeholder="Enter Description" value={this.state.newTaskDesc} onChange={this.handleDescription} />
-        </label>
-        <input type="submit" value="Add" />
-      </form>
+      <div className="col-lg-4 taskListPanel">
+        <form onSubmit={this.handleSubmit} className="taskListPanel__form">
+          <input
+            type="text"
+            placeholder="Enter Name"
+            value={this.state.newTaskName}
+            onChange={this.handleChange}
+            className="taskListPanel__form--input"
+          />
+          <input
+            type="text"
+            placeholder="Enter Description"
+            value={this.state.newTaskDesc}
+            onChange={this.handleDescription}
+            className="taskListPanel__form--input"
+          />
+          <button type="submit" className="taskListPanel__form--submit">
+            <FontAwesomeIcon icon={faPlus} color="white" />
+            Add
+          </button>
+
+        </form>
+
         {this.state.tasks.map((task, index) => {
           return (
-            <TaskCard key={index} task={task} viewer={this.state.viewer}/>
+            <TaskCard key={index} task={task} viewer={this.state.viewer} />
           )
         })}
       </div>
     );
   }
 }
- 
+
 export default TaskManagerPanel;

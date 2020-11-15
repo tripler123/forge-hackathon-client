@@ -1,0 +1,40 @@
+.taskListPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.taskListPanel__form {
+  display: flex;
+  margin: 10px 0 10px 16px;
+  min-width: 100%;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.taskListPanel__form--input{
+  border: none;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 15px;
+}
+
+.taskListPanel__form--input:focus{
+  border-color: red;
+}
+
+.taskListPanel__form--submit {
+  padding: 2px 8px;
+  background-color: #5A5A5A;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  text-transform: uppercase;
+  justify-self: flex-end;
+}
+
+
+.taskListPanel__form--submit svg {
+  margin-right: 5px;
+}

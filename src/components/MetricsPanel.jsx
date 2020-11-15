@@ -1,6 +1,5 @@
 import React from 'react'
 import {CircularProgressbar, buildStyles} from 'react-circular-progressbar';
-import StyledProgressbar from "./CustomProgressBars/StyledProgresssBar.js";
 
 const MetricsPanel = () => {
   const percentage1 = 66;

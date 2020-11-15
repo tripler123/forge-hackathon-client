@@ -1,6 +1,8 @@
 import React from 'react'
-require('./MetricToolBar.css')
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+require('./MetricToolBar.css');
 function MetricToolBar() {
+
   return (
     <div className="metricbar custom-container">
       <div className="project">
@@ -12,7 +14,20 @@ function MetricToolBar() {
           <p>Lima - Perú</p>
         </div>
       </div>
-      <div className="metric">
+      <div className="metrics">
+        <div className="metrics__count">
+          <p className="metrics__count--number">202</p>
+          <p className="metrics__count--text">number of</p>
+          <p className="metrics__count--text">tasks saved</p>
+        </div>
+        <div className="metrics__count--saparator">
+          
+        </div>
+        <div className="metrics__percent">
+          <p className="metrics__count--number">60%</p>
+          <p className="metrics__count--text">Percentage of</p>
+          <p className="metrics__count--text">tasks solved</p>
+        </div>
       </div>
     </div>
   )

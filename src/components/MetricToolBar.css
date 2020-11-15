@@ -26,3 +26,34 @@
 .project__text--name {
   font-weight: bold;
 }
+
+.metrics {
+  display: flex;
+  background-color: rgb(234, 234, 234);
+  width: 452px;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 2rem;
+
+}
+
+.metrics p {
+  margin: 0;
+}
+
+.metrics__count--number {
+  font-size: 34px;
+  font-weight: bold;
+  color: #451158;
+}
+
+.metrics__count--text{
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.metrics__count--saparator{
+  width: 2px;
+  height:60%;
+  background-color: #451158;
+}
