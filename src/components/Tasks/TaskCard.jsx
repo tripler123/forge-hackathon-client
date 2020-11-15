@@ -36,7 +36,7 @@ function TaskCard({ task }) {
     <div
       className="taskcard"
       onClick={selectElements}
-      style={{ "border-color": 
+      style={{ borderColor: 
       task.status === 0 ? "#F5BD0E" : 
       task.status === 1 ? "#2E8B35" :
       "#707070"}}>
