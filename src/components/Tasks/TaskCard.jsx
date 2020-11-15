@@ -33,8 +33,14 @@ function TaskCard({ task }) {
   }
 
   return (
-    <div className="taskcard">
-      <div className="taskcard__left" onClick={selectElements}>
+    <div
+      className="taskcard"
+      onClick={selectElements}
+      style={{ "border-color": 
+      task.status == 0 ? "#F5BD0E" : 
+      task.status == 1 ? "#2E8B35" :
+      "#707070"}}>
+      <div className="taskcard__left">
         <p>{task.idtask}</p>
       </div>
       <div className="taskcard__right">
