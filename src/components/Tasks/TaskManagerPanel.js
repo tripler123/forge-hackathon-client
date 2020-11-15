@@ -16,20 +16,16 @@ class TaskManagerPanel extends Component {
       newTaskName: '',
       newTaskDesc: '',
       dbid_array: [],
-      tasks:  data.tasks
+      tasks:  data.tasks,
+      show: false,
     };
+    
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.url_base = 'https://forge-hackathon-api.herokuapp.com/'
   }
 
   componentDidMount = () => {
-    // let {tasks} = this.state;
-    console.log(this.data)
-    window.getTasks = () => {
-      const tasks = this.state.tasks;
-      console.log(tasks)
-    }
     // window.addEventListener('viewerLoaded', (e) => {
     //   let {tasks} = this.state;
     //   this.viewer = e.detail.viewer;
@@ -39,26 +35,26 @@ class TaskManagerPanel extends Component {
     // });
   }
 
-  getAllTasks = async () => {
-    const {
-      data
-    } = await axios.get(this.url_base + `task`);
-    return data
-  }
+  // getAllTasks = async () => {
+  //   const {
+  //     data
+  //   } = await axios.get(this.url_base + `task`);
+  //   return data
+  // }
 
-  getTask = async (taskId) => {
-    const {
-      data
-    } = await axios.get(this.url_base + `task/${taskId}`);
-    return data
-  }
+  // getTask = async (taskId) => {
+  //   const {
+  //     data
+  //   } = await axios.get(this.url_base + `task/${taskId}`);
+  //   return data
+  // }
 
-  getProjectTasks = async (projectId) => {
-    const {
-      data
-    } = await axios.get(this.url_base + `task/project/${projectId}`);
-    return data
-  }
+  // getProjectTasks = async (projectId) => {
+  //   const {
+  //     data
+  //   } = await axios.get(this.url_base + `task/project/${projectId}`);
+  //   return data
+  // }
 
   fetchSelected = () => {
     let selected = window.privateViewer.getSelection();
