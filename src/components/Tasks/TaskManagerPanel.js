@@ -4,19 +4,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import TaskCard from './TaskCard.jsx'
-import { tasks } from '../fakeData';
 
 require('./TaskManagerPanel.css');
 
 class TaskManagerPanel extends Component {
   constructor(props) {
     super(props);
+    const data = require('../fakeData.json');
 
     this.state = {
       newTaskName: '',
       newTaskDesc: '',
       dbid_array: [],
-      tasks: tasks
+      tasks:  data.tasks
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,6 +25,7 @@ class TaskManagerPanel extends Component {
 
   componentDidMount = () => {
     // let {tasks} = this.state;
+    console.log(this.data)
     window.getTasks = () => {
       const tasks = this.state.tasks;
       console.log(tasks)

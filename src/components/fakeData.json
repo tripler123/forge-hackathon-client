@@ -1,0 +1,56 @@
+{
+    "project": {
+      "id": 0,
+      "name": "Laboratorio de Metalurgia",
+      "image": "https://static.dezeen.com/uploads/2015/03/Saint-denis-pleyel-railway-station-by-Kengo-Kuma_dezeen_468_1.jpg",
+      "URN": "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6c2FudG9yaW5pX2J1Y2tldC9MYW1iZGFTbWFsbEV4YW1wbGUucnZ0",
+      "data": {
+        "taskCount": 202,
+        "tasksCompleted": 15
+      }
+    },
+    "tasks": [
+      {
+        "idtask": 1,
+        "idproject": 0,
+        "name": "Do Stuff",
+        "description": "Do stuff to the model.",
+        "dbid_array": [
+          4844,
+          5315,
+          5544,
+          5550,
+          5634,
+          5638
+        ],
+        "status": 0
+      },
+      {
+        "idtask": 2,
+        "idproject": 1,
+        "name": "Structural Column Formwork",
+        "description": "Structural Column description",
+        "dbid_array": [
+          5439,
+          5502,
+          5534,
+          5546,
+          5624,
+          5636
+        ],
+        "status": 0
+      },
+      {
+        "idtask": 3,
+        "idproject": 2,
+        "name": "Structural Framing",
+        "description": "Structural Framing description",
+        "dbid_array": [
+          5092,
+          5101,
+          5113
+        ],
+        "status": 0
+      }
+    ]
+  }
