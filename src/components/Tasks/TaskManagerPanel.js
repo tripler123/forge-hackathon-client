@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
-
+// import { TaskConsumer } from './TaskContext';
 import TaskCard from './TaskCard.jsx'
 
 require('./TaskManagerPanel.css');
@@ -11,12 +11,12 @@ class TaskManagerPanel extends Component {
   constructor(props) {
     super(props);
     const data = require('../fakeData.json');
-
+    
     this.state = {
       newTaskName: '',
       newTaskDesc: '',
       dbid_array: [],
-      tasks:  data.tasks,
+      tasks: props.context.tasks,
       show: false,
     };
 
@@ -26,35 +26,12 @@ class TaskManagerPanel extends Component {
   }
 
   componentDidMount = () => {
+    console.log(this.props.context)
     window.addEventListener('viewerLoaded', (e) => {
-      // let {tasks} = this.state;
-      // this.viewer.select(tasks[0].dbid_array);
-      // this.viewer.restoreState(JSON.parse(tasks[0].state));
       this.viewer = e.detail.viewer;
       this.setState({viewer: this.viewer});
     });
   }
-
-  // getAllTasks = async () => {
-  //   const {
-  //     data
-  //   } = await axios.get(this.url_base + `task`);
-  //   return data
-  // }
-
-  // getTask = async (taskId) => {
-  //   const {
-  //     data
-  //   } = await axios.get(this.url_base + `task/${taskId}`);
-  //   return data
-  // }
-
-  // getProjectTasks = async (projectId) => {
-  //   const {
-  //     data
-  //   } = await axios.get(this.url_base + `task/project/${projectId}`);
-  //   return data
-  // }
 
   fetchSelected = () => {
     let selected = window.privateViewer.getSelection();
@@ -63,10 +40,10 @@ class TaskManagerPanel extends Component {
 
   deleteTask = (task) =>{
     let { tasks } = this.state;
-    console.log(task);
     const index = tasks.indexOf(task);
     if (index > -1) { tasks.splice(index, 1) };
-    this.setState({task: tasks});
+    this.props.context.updateTasks(tasks);
+    this.setState({tasks: tasks});
   }
 
   createTask = (dbid_array) => {
@@ -83,6 +60,7 @@ class TaskManagerPanel extends Component {
 
     console.log('newTask', newTask)
     tasks.push(newTask);
+    this.props.context.updateTasks(tasks);
     this.setState({ tasks: tasks, newTaskName: '', newTaskDesc: '' });
   }
 
@@ -134,12 +112,11 @@ class TaskManagerPanel extends Component {
           </button>
 
         </form>
-
-        {this.state.tasks.map((task, index) => {
-          return (
-            <TaskCard key={index} task={task} deleteTask={this.deleteTask} privateViewer={this.state.viewer} />
-          )
-        })}
+          {this.state.tasks.map((task, index) => {
+            return (
+              <TaskCard key={index} task={task} deleteTask={this.deleteTask} privateViewer={this.state.viewer} />
+            )
+          })}
       </div>
     );
   }
