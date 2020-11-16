@@ -88,3 +88,33 @@
 .taskcard__actions--delete {
   background-color: #ff5500;
 }
+
+
+/* Modal Styles */
+.customModal__form{
+  display: flex;
+  flex-direction: column;
+}
+
+.customModal__form--label{
+  margin: 0;
+  color: #451158;
+  font-weight: bold;
+  font-style: italic;
+}
+.customModal__form--input{
+  background-color: #eeeeee;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 6px;
+  margin: 5px 0px 20px 0px;
+  padding: 6px 8px;
+  font-size: 15px;
+}
+
+.customModal__submit {
+  background-color: #1167b1 !important;
+}
+.customModal__submit svg{
+  margin-right: 8px;
+}
