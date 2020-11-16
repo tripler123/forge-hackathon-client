@@ -11,8 +11,8 @@
     },
     "tasks": [
       {
-        "idtask": 1,
-        "idproject": 0,
+        "taskId": 1,
+        "projectId": 0,
         "name": "Do Stuff",
         "description": "Do stuff to the model.",
         "dbid_array": [
@@ -27,8 +27,8 @@
         "date": "11/7/2020"
       },
       {
-        "idtask": 2,
-        "idproject": 1,
+        "taskId": 2,
+        "projectId": 0,
         "name": "Structural Column Formwork",
         "description": "Structural Column description",
         "dbid_array": [
@@ -43,8 +43,8 @@
         "date": "11/3/2020"
       },
       {
-        "idtask": 3,
-        "idproject": 2,
+        "taskId": 3,
+        "projectId": 0,
         "name": "Structural Framing",
         "description": "Structural Framing description",
         "dbid_array": [

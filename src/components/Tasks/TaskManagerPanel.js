@@ -19,7 +19,7 @@ class TaskManagerPanel extends Component {
       tasks:  data.tasks,
       show: false,
     };
-    
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.url_base = 'https://forge-hackathon-api.herokuapp.com/'
@@ -61,12 +61,20 @@ class TaskManagerPanel extends Component {
     return selected;
   }
 
+  deleteTask = (task) =>{
+    let { tasks } = this.state;
+    console.log(task);
+    const index = tasks.indexOf(task);
+    if (index > -1) { tasks.splice(index, 1) };
+    this.setState({task: tasks});
+  }
+
   createTask = (dbid_array) => {
     let { tasks, newTaskDesc, newTaskName } = this.state;
-    let id = tasks.length;
+    let id = tasks.length + 1;
     let newTask = {
-      id: id,
-      idproject: 1,
+      taskId: id,
+      projectId: 1,
       name: newTaskName,
       description: newTaskDesc,
       dbid_array: window.privateViewer.getSelection(),
@@ -129,7 +137,7 @@ class TaskManagerPanel extends Component {
 
         {this.state.tasks.map((task, index) => {
           return (
-            <TaskCard key={index} task={task} viewer={this.state.viewer} />
+            <TaskCard key={index} task={task} deleteTask={this.deleteTask} />
           )
         })}
       </div>

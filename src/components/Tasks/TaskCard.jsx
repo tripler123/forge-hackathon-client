@@ -5,26 +5,24 @@ import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { Modal, Button } from "react-bootstrap";
 require('./TaskCard.css');
 
-function TaskCard({ task }) {
-  const [taskId, setTaskId] = useState(false);
+function TaskCard({ task, deleteTask }) {
+
+  const [taskId, setTaskId] = useState(-1);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => {
-    console.log("WHY")
-    setShow(true)
-  };
+  const handleShow = () => setShow(true);
 
   const orange = new THREE.Vector4(1, 0.6, 0, 1);
 
   const selectElements = () => {
-    if (taskId === -1 && taskId !== task.idtask) {
+    if (taskId === -1 && taskId !== task.taskId) {
       window.privateViewer.clearThemingColors();
       window.privateViewer.isolate(task.dbid_array);
       task.dbid_array.forEach(dbId => {
         window.privateViewer.setThemingColor(dbId, orange)
       })
-      setTaskId(task.idtask)
+      setTaskId(task.taskId)
     } else {
       window.privateViewer.clearThemingColors();
       window.privateViewer.isolate(0);
@@ -36,12 +34,12 @@ function TaskCard({ task }) {
     <div
       className="taskcard"
       onClick={selectElements}
-      style={{ "border-color": 
+      style={{ "borderColor": 
       task.status === 0 ? "#F5BD0E" : 
       task.status === 1 ? "#2E8B35" :
       "#707070"}}>
       <div className="taskcard__left">
-        <p>{task.idtask}</p>
+        <p>{task.taskId}</p>
       </div>
       <div className="taskcard__right">
         <div className="taskcard__title">
@@ -54,7 +52,7 @@ function TaskCard({ task }) {
         <button className="taskcard__actions--edit" onClick={handleShow}>
           <FontAwesomeIcon icon={faPen} color="white" size="xs" />
         </button>
-        <button className="taskcard__actions--delete">
+        <button className="taskcard__actions--delete" onClick={()=>{deleteTask(task)}}>
           <FontAwesomeIcon icon={faTrash} color="white" size="xs" />
         </button>
       </div>
