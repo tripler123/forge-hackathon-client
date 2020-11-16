@@ -26,13 +26,13 @@ class TaskManagerPanel extends Component {
   }
 
   componentDidMount = () => {
-    // window.addEventListener('viewerLoaded', (e) => {
-    //   let {tasks} = this.state;
-    //   this.viewer = e.detail.viewer;
-    //   this.viewer.select(tasks[0].dbid_array);
-    //   this.viewer.restoreState(JSON.parse(tasks[0].state));
-    //   this.setState({viewer: this.viewer});
-    // });
+    window.addEventListener('viewerLoaded', (e) => {
+      // let {tasks} = this.state;
+      // this.viewer.select(tasks[0].dbid_array);
+      // this.viewer.restoreState(JSON.parse(tasks[0].state));
+      this.viewer = e.detail.viewer;
+      this.setState({viewer: this.viewer});
+    });
   }
 
   // getAllTasks = async () => {
@@ -137,7 +137,7 @@ class TaskManagerPanel extends Component {
 
         {this.state.tasks.map((task, index) => {
           return (
-            <TaskCard key={index} task={task} deleteTask={this.deleteTask} />
+            <TaskCard key={index} task={task} deleteTask={this.deleteTask} privateViewer={this.state.viewer} />
           )
         })}
       </div>

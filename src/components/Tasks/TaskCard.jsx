@@ -5,7 +5,7 @@ import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { Modal, Button } from "react-bootstrap";
 require('./TaskCard.css');
 
-function TaskCard({ task, deleteTask }) {
+function TaskCard({ task, deleteTask, privateViewer }) {
 
   const [taskId, setTaskId] = useState(-1);
   const [show, setShow] = useState(false);
@@ -17,15 +17,15 @@ function TaskCard({ task, deleteTask }) {
 
   const selectElements = () => {
     if (taskId === -1 && taskId !== task.taskId) {
-      window.privateViewer.clearThemingColors();
-      window.privateViewer.isolate(task.dbid_array);
+      privateViewer.clearThemingColors();
+      privateViewer.isolate(task.dbid_array);
       task.dbid_array.forEach(dbId => {
         window.privateViewer.setThemingColor(dbId, orange)
       })
       setTaskId(task.taskId)
     } else {
-      window.privateViewer.clearThemingColors();
-      window.privateViewer.isolate(0);
+      privateViewer.clearThemingColors();
+      privateViewer.isolate(0);
       setTaskId(-1)
     }
   }
