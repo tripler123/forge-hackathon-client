@@ -10,7 +10,7 @@ require('./TaskManagerPanel.css');
 class TaskManagerPanel extends Component {
   constructor(props) {
     super(props);
-    const data = require('../fakeData.json');
+    // const data = require('../fakeData.json');
     
     this.state = {
       newTaskName: '',
