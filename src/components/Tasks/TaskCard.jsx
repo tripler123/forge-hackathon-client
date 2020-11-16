@@ -20,6 +20,7 @@ function TaskCard({ task, deleteTask, editTask, privateViewer }) {
 
 
   const selectElements = () => {
+    console.log(task)
     if (taskId === -1 && taskId !== task.taskId) {
       privateViewer.clearThemingColors();
       privateViewer.isolate(task.dbid_array);
@@ -36,20 +37,20 @@ function TaskCard({ task, deleteTask, editTask, privateViewer }) {
 
   const handleChangeName = (event) => {
     event.preventDefault();
-    setName(event.target.value); 
+    setName(event.target.value);
   }
 
   const handleChangeDescription = (event) => {
     event.preventDefault();
-    setDesc(event.target.value); 
-   }
+    setDesc(event.target.value);
+  }
 
   const handleStatusChange = (event) => {
     event.preventDefault();
     let status = event.target.value
-    let val = (status === "0") ? 0 : (status === "1") ?  1 : 2;
-    setStatus(val); 
-   }
+    let val = (status === "0") ? 0 : (status === "1") ? 1 : 2;
+    setStatus(val);
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -60,9 +61,9 @@ function TaskCard({ task, deleteTask, editTask, privateViewer }) {
     handleClose();
   }
 
-  const taskStatus= (status) => status === 0 ? "Pending" :
-  status === 1 ? "Resolved" :
-    "Dismissed"
+  const taskStatus = (status) => status === 0 ? "Pending" :
+    status === 1 ? "Resolved" :
+      "Dismissed"
 
   return (
     <div
@@ -87,7 +88,7 @@ function TaskCard({ task, deleteTask, editTask, privateViewer }) {
         <button className="taskcard__actions--edit" onClick={handleShow}>
           <FontAwesomeIcon icon={faPen} color="white" size="xs" />
         </button>
-        <button className="taskcard__actions--delete" onClick={()=>{deleteTask(task)}}>
+        <button className="taskcard__actions--delete" onClick={() => { deleteTask(task) }}>
           <FontAwesomeIcon icon={faTrash} color="white" size="xs" />
         </button>
       </div>
@@ -128,12 +129,12 @@ function TaskCard({ task, deleteTask, editTask, privateViewer }) {
               htmlFor="status"
               className="customModal__form--label">
               Status</label>
-            <select 
-              id="status" 
+            <select
+              id="status"
               name="status"
               className="customModal__form--input"
               onChange={handleStatusChange}
-              >
+            >
               <option value="" selected disabled hidden>Change Status</option>
               <option value="0">{taskStatus(0)}</option>
               <option value="1">{taskStatus(1)}</option>

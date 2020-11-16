@@ -3,7 +3,7 @@
     "id": 0,
     "name": "Laboratorio de Metalurgia",
     "image": "https://static.dezeen.com/uploads/2015/03/Saint-denis-pleyel-railway-station-by-Kengo-Kuma_dezeen_468_1.jpg",
-    "URN": "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6c2FudG9yaW5pX2J1Y2tldC9MYW1iZGFTbWFsbEV4YW1wbGUucnZ0",
+    "URN": "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6c2FudG9yaW5pX2J1Y2tldC9Qb2xpZGVwb3J0aXZvJTIwMDMucnZ0",
     "data": {
       "taskCount": 3,
       "tasksCompleted": 1
@@ -16,16 +16,17 @@
       "name": "Insufficient headroom",
       "description": "The free height is much lower than the regulation (h = 2.10 m) it is necessary to move the facilities to comply with the regulation.",
       "dbid_array": [
-        5323,
-        5327,
-        5341,
-        5343,
-        5345,
-        5353,
-        5362,
-        5371,
-        5770,
-        5786
+        4489,
+        4497,
+        4499,
+        4503,
+        4507,
+        5224,
+        6845,
+        6847,
+        6855,
+        6899,
+        6912
       ],
       "status": 0,
       "date": "11/7/2020"
@@ -36,12 +37,13 @@
       "name": "Wrong width",
       "description": "The structural model does not represent the original measurements within the detail drawing EST-001-V01.",
       "dbid_array": [
-        5439,
-        5502,
-        5534,
-        5546,
-        5624,
-        5636
+        4368,
+        4561,
+        4876,
+        6040,
+        6044,
+        6348,
+        7017
       ],
       "status": 0,
       "date": "11/3/2020"
@@ -52,10 +54,12 @@
       "name": "Duct and Beam colision",
       "description": "Duct intersection with beam in grid 1 / P-C of the second level. Make a 45 degre bypass",
       "dbid_array": [
-        5323,
-        5327,
-        5341,
-        5345
+        4483,
+        4485,
+        4509,
+        4511,
+        4513,
+        8349
       ],
       "status": 1,
       "date": "11/11/2020"
@@ -66,9 +70,12 @@
       "name": "Foundation error",
       "description": "It is necessary to modify the thickness of the foundations. Since it does not have the measurements of the last designer deliverables.",
       "dbid_array": [
-        5029,
-        5065,
-        5101
+        6420,
+        6432,
+        6446,
+        6455,
+        6491,
+        6627
       ],
       "status": 2,
       "date": "11/11/2020"

@@ -12,10 +12,10 @@
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   margin-bottom: 8px;
   border-left: 6px solid gray;
-  cursor: pointer;
 }
 
-.taskcard__left{
+.taskcard__left {
+  cursor: pointer;
   background-color: #5A5A5A;
   width: fit-content;
   /* padding: 0 5px; */
@@ -27,13 +27,17 @@
   align-items: center;
 }
 
-.taskcard__left p{
+.taskcard__left p {
   margin: 0;
   font-size: 15px;
   color: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.taskcard__right{
+.taskcard__right {
   margin-left: 10px;
   flex: 1;
   display: flex;
@@ -50,22 +54,22 @@
   margin: 0;
 }
 
-.taskcard__title--name{
+.taskcard__title--name {
   font-weight: bold;
   font-size: 14px;
 }
 
-.taskcard__title--date{
+.taskcard__title--date {
   font-size: 12px;
 }
 
-.taskcard__description{
+.taskcard__description {
   font-size: 11px;
   margin: 0;
   width: 70%;
 }
 
-.taskcard__actions{
+.taskcard__actions {
   position: absolute;
   right: 24px;
   bottom: 10px;
@@ -73,7 +77,7 @@
 
 .taskcard__actions button {
   /* padding: 2px auto; */
-  
+
   border: none;
   margin-left: 5px;
   border-radius: 5px;
@@ -92,18 +96,19 @@
 
 
 /* Modal Styles */
-.customModal__form{
+.customModal__form {
   display: flex;
   flex-direction: column;
 }
 
-.customModal__form--label{
+.customModal__form--label {
   margin: 0;
   color: #451158;
   font-weight: bold;
   font-style: italic;
 }
-.customModal__form--input{
+
+.customModal__form--input {
   background-color: #eeeeee;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   border: none;
@@ -116,6 +121,7 @@
 .customModal__submit {
   background-color: #1167b1 !important;
 }
-.customModal__submit svg{
+
+.customModal__submit svg {
   margin-right: 8px;
 }
