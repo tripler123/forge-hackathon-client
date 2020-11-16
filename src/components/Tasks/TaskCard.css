@@ -62,6 +62,7 @@
 .taskcard__description{
   font-size: 11px;
   margin: 0;
+  width: 70%;
 }
 
 .taskcard__actions{
