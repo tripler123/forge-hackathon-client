@@ -5,16 +5,16 @@
       "image": "https://static.dezeen.com/uploads/2015/03/Saint-denis-pleyel-railway-station-by-Kengo-Kuma_dezeen_468_1.jpg",
       "URN": "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6c2FudG9yaW5pX2J1Y2tldC9MYW1iZGFTbWFsbEV4YW1wbGUucnZ0",
       "data": {
-        "taskCount": 202,
-        "tasksCompleted": 15
+        "taskCount": 3,
+        "tasksCompleted": 1
       }
     },
     "tasks": [
       {
         "taskId": 1,
         "projectId": 0,
-        "name": "Do Stuff",
-        "description": "Do stuff to the model.",
+        "name": "Insufficient headroom",
+        "description": "The free height is much lower than the regulation (h = 2.10 m) it is necessary to move the facilities to comply with the regulation.",
         "dbid_array": [
           4844,
           5315,
@@ -29,8 +29,8 @@
       {
         "taskId": 2,
         "projectId": 0,
-        "name": "Structural Column Formwork",
-        "description": "Structural Column description",
+        "name": "Wrong width",
+        "description": "The structural model does not represent the original measurements within the detail drawing EST-001-V01.",
         "dbid_array": [
           5439,
           5502,
@@ -45,8 +45,8 @@
       {
         "taskId": 3,
         "projectId": 0,
-        "name": "Structural Framing",
-        "description": "Structural Framing description",
+        "name": "Duct and Beam colision",
+        "description": "Duct intersection with beam in grid 1 / P-C of the second level. Make a 45 degre bypass",
         "dbid_array": [
           5092,
           5101,
