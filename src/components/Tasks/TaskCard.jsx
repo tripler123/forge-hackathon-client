@@ -34,7 +34,7 @@ function TaskCard({ task, deleteTask }) {
     <div
       className="taskcard"
       onClick={selectElements}
-      style={{ "borderColor": 
+      style={{ borderColor: 
       task.status === 0 ? "#F5BD0E" : 
       task.status === 1 ? "#2E8B35" :
       "#707070"}}>
