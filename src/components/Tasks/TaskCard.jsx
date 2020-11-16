@@ -134,15 +134,16 @@ function TaskCard({ task, deleteTask, editTask, privateViewer }) {
               className="customModal__form--input"
               onChange={handleStatusChange}
               >
+              <option value="" selected disabled hidden>Change Status</option>
               <option value="0">{taskStatus(0)}</option>
               <option value="1">{taskStatus(1)}</option>
               <option value="2">{taskStatus(2)}</option>
             </select>
 
-          <Button type="submit" className="customModal__submit">
-            <FontAwesomeIcon icon={faSave} color="white" />
-            Save Changes
-          </Button>
+            <Button type="submit" className="customModal__submit">
+              <FontAwesomeIcon icon={faSave} color="white" />
+              Save Changes
+            </Button>
           </form>
 
         </Modal.Body>
