@@ -2,7 +2,6 @@ import React, { Component } from "react";
 // import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
-// import { TaskConsumer } from './TaskContext';
 import TaskCard from './TaskCard.jsx'
 
 require('./TaskManagerPanel.css');
@@ -26,7 +25,6 @@ class TaskManagerPanel extends Component {
   }
 
   componentDidMount = () => {
-    console.log(this.props.context)
     window.addEventListener('viewerLoaded', (e) => {
       this.viewer = e.detail.viewer;
       this.setState({viewer: this.viewer});
