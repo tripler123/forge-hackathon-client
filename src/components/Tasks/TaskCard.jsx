@@ -5,15 +5,19 @@ import { faPen, faTrash, faSave } from '@fortawesome/free-solid-svg-icons'
 import { Modal, Button } from "react-bootstrap";
 require('./TaskCard.css');
 
-function TaskCard({ task, deleteTask, privateViewer }) {
-
+function TaskCard({ task, deleteTask, editTask, privateViewer }) {
   const [taskId, setTaskId] = useState(-1);
   const [show, setShow] = useState(false);
+  const [tempName, setName] = useState(task.name);
+  const [tempDesc, setDesc] = useState(task.description);
+  const [tempStatus, setStatus] = useState(0);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+  }
   const handleShow = () => setShow(true);
-
   const orange = new THREE.Vector4(1, 0.6, 0, 1);
+
 
   const selectElements = () => {
     if (taskId === -1 && taskId !== task.taskId) {
@@ -30,8 +34,31 @@ function TaskCard({ task, deleteTask, privateViewer }) {
     }
   }
 
-  const hanldeChangeName = () => { }
-  const hanldeChangeDescription = () => { }
+  const handleChangeName = (event) => {
+    event.preventDefault();
+    setName(event.target.value); 
+  }
+
+  const handleChangeDescription = (event) => {
+    event.preventDefault();
+    setDesc(event.target.value); 
+   }
+
+  const handleStatusChange = (event) => {
+    event.preventDefault();
+    let status = event.target.value
+    let val = (status === "0") ? 0 : (status === "1") ?  1 : 2;
+    setStatus(val); 
+   }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    task.name = tempName;
+    task.description = tempDesc;
+    task.status = tempStatus;
+
+    handleClose();
+  }
 
   const taskStatus= (status) => status === 0 ? "Pending" :
   status === 1 ? "Resolved" :
@@ -40,14 +67,13 @@ function TaskCard({ task, deleteTask, privateViewer }) {
   return (
     <div
       className="taskcard"
-      onClick={selectElements}
       style={{
         borderColor:
           task.status === 0 ? "#F5BD0E" :
             task.status === 1 ? "#2E8B35" :
               "#707070"
       }}>
-      <div className="taskcard__left">
+      <div className="taskcard__left" onClick={selectElements}>
         <p>{task.taskId}</p>
       </div>
       <div className="taskcard__right">
@@ -70,7 +96,7 @@ function TaskCard({ task, deleteTask, privateViewer }) {
           <Modal.Title>Edit Task:</Modal.Title>
         </Modal.Header>
         <Modal.Body className="customModal">
-          <form className="customModal__form">
+          <form className="customModal__form" onSubmit={handleSubmit}>
             <label
               htmlFor="name"
               className="customModal__form--label">
@@ -80,8 +106,8 @@ function TaskCard({ task, deleteTask, privateViewer }) {
               id="name"
               type="text"
               placeholder="Enter Name"
-              value={task.name}
-              onChange={hanldeChangeName}
+              value={tempName}
+              onChange={handleChangeName}
               className="customModal__form--input"
             />
             <label
@@ -93,8 +119,8 @@ function TaskCard({ task, deleteTask, privateViewer }) {
               id="description"
               type="text"
               placeholder="Enter Description"
-              value={task.description}
-              onChange={hanldeChangeDescription}
+              value={tempDesc}
+              onChange={handleChangeDescription}
               className="customModal__form--input"
             />
 
@@ -105,20 +131,22 @@ function TaskCard({ task, deleteTask, privateViewer }) {
             <select 
               id="status" 
               name="status"
-              className="customModal__form--input">
+              className="customModal__form--input"
+              onChange={handleStatusChange}
+              >
               <option value="0">{taskStatus(0)}</option>
-              <option value="Resolved">{taskStatus(1)}</option>
-              <option value="fiat">{taskStatus(2)}</option>
+              <option value="1">{taskStatus(1)}</option>
+              <option value="2">{taskStatus(2)}</option>
             </select>
 
+          <Button type="submit" className="customModal__submit">
+            <FontAwesomeIcon icon={faSave} color="white" />
+            Save Changes
+          </Button>
           </form>
 
         </Modal.Body>
         <Modal.Footer className="customModal__footer">
-          <Button onClick={handleClose} className="customModal__submit">
-            <FontAwesomeIcon icon={faSave} color="white" />
-            Save Changes
-          </Button>
         </Modal.Footer>
       </Modal>
     </div>

@@ -3,10 +3,6 @@ import React from 'react';
 require('./MetricToolBar.css');
 
 function MetricToolBar(context) {
-  // const data = require('./fakeData.json');
-  // const taskCount = data.project.data.taskCount;
-  // const completedTasks = data.project.data.tasksCompleted;
-  // const percentage = ((completedTasks/taskCount)*100).toFixed();
   return (
       <div className="metricbar custom-container">
         <div className="project">
