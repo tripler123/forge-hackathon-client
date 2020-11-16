@@ -20,9 +20,6 @@
   font-size: 15px;
 }
 
-.taskListPanel__form--input:focus{
-  border-color: red;
-}
 
 .taskListPanel__form--submit {
   padding: 2px 8px;

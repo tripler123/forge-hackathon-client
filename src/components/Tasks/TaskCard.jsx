@@ -1,7 +1,7 @@
 /* global THREE */
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faPen, faTrash, faSave } from '@fortawesome/free-solid-svg-icons'
 import { Modal, Button } from "react-bootstrap";
 require('./TaskCard.css');
 
@@ -30,14 +30,23 @@ function TaskCard({ task, deleteTask, privateViewer }) {
     }
   }
 
+  const hanldeChangeName = () => { }
+  const hanldeChangeDescription = () => { }
+
+  const taskStatus= (status) => status === 0 ? "Pending" :
+  status === 1 ? "Resolved" :
+    "Dismissed"
+
   return (
     <div
       className="taskcard"
       onClick={selectElements}
-      style={{ borderColor: 
-      task.status === 0 ? "#F5BD0E" : 
-      task.status === 1 ? "#2E8B35" :
-      "#707070"}}>
+      style={{
+        borderColor:
+          task.status === 0 ? "#F5BD0E" :
+            task.status === 1 ? "#2E8B35" :
+              "#707070"
+      }}>
       <div className="taskcard__left">
         <p>{task.taskId}</p>
       </div>
@@ -58,11 +67,56 @@ function TaskCard({ task, deleteTask, privateViewer }) {
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit Task: {task.name}</Modal.Title>
+          <Modal.Title>Edit Task:</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Please Make Your Changes</Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
+        <Modal.Body className="customModal">
+          <form className="customModal__form">
+            <label
+              htmlFor="name"
+              className="customModal__form--label">
+              Name</label>
+            <input
+              name="name"
+              id="name"
+              type="text"
+              placeholder="Enter Name"
+              value={task.name}
+              onChange={hanldeChangeName}
+              className="customModal__form--input"
+            />
+            <label
+              htmlFor="description"
+              className="customModal__form--label">
+              Description</label>
+            <textarea
+              name="description"
+              id="description"
+              type="text"
+              placeholder="Enter Description"
+              value={task.description}
+              onChange={hanldeChangeDescription}
+              className="customModal__form--input"
+            />
+
+            <label
+              htmlFor="status"
+              className="customModal__form--label">
+              Status</label>
+            <select 
+              id="status" 
+              name="status"
+              className="customModal__form--input">
+              <option value="0">{taskStatus(0)}</option>
+              <option value="Resolved">{taskStatus(1)}</option>
+              <option value="fiat">{taskStatus(2)}</option>
+            </select>
+
+          </form>
+
+        </Modal.Body>
+        <Modal.Footer className="customModal__footer">
+          <Button onClick={handleClose} className="customModal__submit">
+            <FontAwesomeIcon icon={faSave} color="white" />
             Save Changes
           </Button>
         </Modal.Footer>
